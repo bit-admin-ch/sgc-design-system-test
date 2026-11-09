@@ -1,0 +1,59 @@
+export default {
+    root: {
+        background: "{content.background}",
+        color: "{content.color}",
+        padding: "0.875rem",
+        gap: "2px",
+        indent: "0.875rem",
+        transitionDuration: "{transition.duration}"
+    },
+    node: {
+        padding: "0.25rem 0.5rem",
+        borderRadius: "{content.border.radius}",
+        hoverBackground: "{content.hover.background}",
+        selectedBackground: "{highlight.background}",
+        color: "{text.color}",
+        hoverColor: "{text.hover.color}",
+        selectedColor: "{highlight.color}",
+        focusRing: {
+            width: "{focus.ring.width}",
+            style: "{focus.ring.style}",
+            color: "{focus.ring.color}",
+            offset: "-1px",
+            shadow: "none"
+        },
+        gap: "0.375rem"
+    },
+    nodeIcon: {
+        color: "{text.muted.color}",
+        hoverColor: "{text.hover.muted.color}",
+        selectedColor: "{highlight.color}"
+    },
+    nodeToggleButton: {
+        borderRadius: "0.75rem",
+        size: "1.5rem",
+        hoverBackground: "{content.hover.background}",
+        selectedHoverBackground: "{content.background}",
+        color: "{text.muted.color}",
+        hoverColor: "{text.hover.muted.color}",
+        selectedHoverColor: "{primary.color}",
+        focusRing: {
+            width: "{focus.ring.width}",
+            style: "{focus.ring.style}",
+            color: "{focus.ring.color}",
+            offset: "{focus.ring.offset}",
+            shadow: "none"
+        }
+    },
+    loadingIcon: {
+        size: "1.75rem"
+    },
+    filter: {
+        margin: "0.5rem"
+    },
+    nodeLabel: {
+        fontWeight: "{typography.font.weight}",
+        selectedFontWeight: "{list.option.selected.font.weight}",
+        fontSize: "{typography.font.size}"
+    }
+}

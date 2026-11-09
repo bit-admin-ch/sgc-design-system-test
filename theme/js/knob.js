@@ -1,0 +1,23 @@
+export default {
+    root: {
+        transitionDuration: "{transition.duration}",
+        focusRing: {
+            width: "{focus.ring.width}",
+            style: "{focus.ring.style}",
+            color: "{focus.ring.color}",
+            offset: "{focus.ring.offset}",
+            shadow: "none"
+        }
+    },
+    value: {
+        background: "{primary.color}"
+    },
+    range: {
+        background: "{content.border.color}"
+    },
+    text: {
+        color: "{text.muted.color}",
+        fontSize: "1.125rem",
+        fontWeight: "400"
+    }
+}
