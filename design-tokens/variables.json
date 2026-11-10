@@ -1034,13 +1034,13 @@
         "$type": "color",
         "$value": "{content.background}"
       },
-      "footer": {
+      "header": {
         "background": {
           "$type": "color",
           "$value": "{content.background}"
         }
       },
-      "header": {
+      "footer": {
         "background": {
           "$type": "color",
           "$value": "{content.background}"
@@ -1667,14 +1667,16 @@
               "$type": "color",
               "$value": "{navigation.item.color}"
             },
-            "focus": {
+            "icon": {
               "color": {
                 "$type": "color",
-                "$value": "{navigation.item.focus.color}"
+                "$value": "{navigation.item.icon.color}"
               },
-              "background": {
-                "$type": "color",
-                "$value": "{navigation.item.focus.background}"
+              "focus": {
+                "color": {
+                  "$type": "color",
+                  "$value": "{navigation.item.icon.focus.color}"
+                }
               }
             },
             "active": {
@@ -1687,19 +1689,23 @@
                 "$value": "{navigation.item.active.background}"
               }
             },
-            "icon": {
+            "focus": {
               "color": {
                 "$type": "color",
-                "$value": "{navigation.item.icon.color}"
+                "$value": "{navigation.item.focus.color}"
               },
-              "focus": {
-                "color": {
-                  "$type": "color",
-                  "$value": "{navigation.item.icon.focus.color}"
-                }
+              "background": {
+                "$type": "color",
+                "$value": "{navigation.item.focus.background}"
               }
             }
           }
+        }
+      },
+      "layout": {
+        "background": {
+          "$type": "color",
+          "$value": "{surface.50}"
         }
       },
       "main": {
@@ -1718,12 +1724,6 @@
             "$type": "color",
             "$value": "{surface.50}"
           }
-        }
-      },
-      "layout": {
-        "background": {
-          "$type": "color",
-          "$value": "{surface.50}"
         }
       }
     },
@@ -1896,6 +1896,46 @@
         "$type": "number",
         "$value": 1.5
       },
+      "normal": {
+        "detail": {
+          "color": {
+            "$type": "color",
+            "$value": "{text.muted.color}"
+          }
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{text.color}"
+        },
+        "background": {
+          "$type": "color",
+          "$value": "{content.background}"
+        },
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{content.border.color}"
+          }
+        },
+        "close": {
+          "button": {
+            "hover": {
+              "background": {
+                "$type": "color",
+                "$value": "{content.hover.background}"
+              }
+            },
+            "focus": {
+              "ring": {
+                "color": {
+                  "$type": "color",
+                  "$value": "{blue.600}"
+                }
+              }
+            }
+          }
+        }
+      },
       "info": {
         "background": {
           "$type": "color",
@@ -1923,46 +1963,6 @@
               "background": {
                 "$type": "color",
                 "$value": "{blue.100}"
-              }
-            },
-            "focus": {
-              "ring": {
-                "color": {
-                  "$type": "color",
-                  "$value": "{blue.600}"
-                }
-              }
-            }
-          }
-        }
-      },
-      "normal": {
-        "detail": {
-          "color": {
-            "$type": "color",
-            "$value": "{text.muted.color}"
-          }
-        },
-        "color": {
-          "$type": "color",
-          "$value": "{text.color}"
-        },
-        "border": {
-          "color": {
-            "$type": "color",
-            "$value": "{content.border.color}"
-          }
-        },
-        "background": {
-          "$type": "color",
-          "$value": "{content.background}"
-        },
-        "close": {
-          "button": {
-            "hover": {
-              "background": {
-                "$type": "color",
-                "$value": "{content.hover.background}"
               }
             },
             "focus": {
@@ -3318,13 +3318,13 @@
         "$type": "color",
         "$value": "{content.background}"
       },
-      "footer": {
+      "header": {
         "background": {
           "$type": "color",
           "$value": "{content.background}"
         }
       },
-      "header": {
+      "footer": {
         "background": {
           "$type": "color",
           "$value": "{content.background}"
@@ -3951,14 +3951,16 @@
               "$type": "color",
               "$value": "{navigation.item.color}"
             },
-            "focus": {
+            "icon": {
               "color": {
                 "$type": "color",
-                "$value": "{navigation.item.focus.color}"
+                "$value": "{navigation.item.icon.color}"
               },
-              "background": {
-                "$type": "color",
-                "$value": "{navigation.item.focus.background}"
+              "focus": {
+                "color": {
+                  "$type": "color",
+                  "$value": "{navigation.item.icon.focus.color}"
+                }
               }
             },
             "active": {
@@ -3971,19 +3973,23 @@
                 "$value": "{navigation.item.active.background}"
               }
             },
-            "icon": {
+            "focus": {
               "color": {
                 "$type": "color",
-                "$value": "{navigation.item.icon.color}"
+                "$value": "{navigation.item.focus.color}"
               },
-              "focus": {
-                "color": {
-                  "$type": "color",
-                  "$value": "{navigation.item.icon.focus.color}"
-                }
+              "background": {
+                "$type": "color",
+                "$value": "{navigation.item.focus.background}"
               }
             }
           }
+        }
+      },
+      "layout": {
+        "background": {
+          "$type": "color",
+          "$value": "{surface.900}"
         }
       },
       "main": {
@@ -4002,12 +4008,6 @@
             "$type": "color",
             "$value": "{surface.900}"
           }
-        }
-      },
-      "layout": {
-        "background": {
-          "$type": "color",
-          "$value": "{surface.900}"
         }
       }
     },
@@ -4180,6 +4180,46 @@
         "$type": "number",
         "$value": 10
       },
+      "normal": {
+        "detail": {
+          "color": {
+            "$type": "color",
+            "$value": "{text.muted.color}"
+          }
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{text.color}"
+        },
+        "background": {
+          "$type": "color",
+          "$value": "{content.background}"
+        },
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{content.border.color}"
+          }
+        },
+        "close": {
+          "button": {
+            "hover": {
+              "background": {
+                "$type": "color",
+                "$value": "{content.hover.background}"
+              }
+            },
+            "focus": {
+              "ring": {
+                "color": {
+                  "$type": "color",
+                  "$value": "{blue.500}"
+                }
+              }
+            }
+          }
+        }
+      },
       "info": {
         "background": {
           "$type": "color",
@@ -4207,46 +4247,6 @@
               "background": {
                 "$type": "color",
                 "$value": "#ffffff0d"
-              }
-            },
-            "focus": {
-              "ring": {
-                "color": {
-                  "$type": "color",
-                  "$value": "{blue.500}"
-                }
-              }
-            }
-          }
-        }
-      },
-      "normal": {
-        "detail": {
-          "color": {
-            "$type": "color",
-            "$value": "{text.muted.color}"
-          }
-        },
-        "color": {
-          "$type": "color",
-          "$value": "{text.color}"
-        },
-        "border": {
-          "color": {
-            "$type": "color",
-            "$value": "{content.border.color}"
-          }
-        },
-        "background": {
-          "$type": "color",
-          "$value": "{content.background}"
-        },
-        "close": {
-          "button": {
-            "hover": {
-              "background": {
-                "$type": "color",
-                "$value": "{content.hover.background}"
               }
             },
             "focus": {
@@ -4592,7 +4592,7 @@
       },
       "500": {
         "$type": "color",
-        "$value": "#ff0000ff"
+        "$value": "#f59e0bff"
       },
       "600": {
         "$type": "color",
@@ -6724,14 +6724,7 @@
       }
     }
   },
-  "aura/custom": {
-    "primary": {
-      "color": {
-        "$type": "color",
-        "$value": "#ff0000ff"
-      }
-    }
-  },
+  "aura/custom": {},
   "aura/semantic/common": {
     "anchor": {
       "gutter": {
@@ -6909,26 +6902,10 @@
             "$value": "{typography.font.size}"
           }
         },
-        "group": {
-          "font": {
-            "weight": {
-              "$type": "number",
-              "$value": 600
-            },
-            "size": {
-              "$type": "number",
-              "$value": "{typography.font.size}"
-            }
-          },
-          "padding": {
-            "y": {
-              "$type": "number",
-              "$value": "{scale.0-25}"
-            },
-            "x": {
-              "$type": "number",
-              "$value": "{scale.0-625}"
-            }
+        "transition": {
+          "duration": {
+            "$type": "number",
+            "$value": 0
           }
         },
         "selected": {
@@ -6949,10 +6926,26 @@
             }
           }
         },
-        "transition": {
-          "duration": {
-            "$type": "number",
-            "$value": 0
+        "group": {
+          "font": {
+            "weight": {
+              "$type": "number",
+              "$value": 600
+            },
+            "size": {
+              "$type": "number",
+              "$value": "{typography.font.size}"
+            }
+          },
+          "padding": {
+            "y": {
+              "$type": "number",
+              "$value": "{scale.0-25}"
+            },
+            "x": {
+              "$type": "number",
+              "$value": "{scale.0-625}"
+            }
           }
         },
         "border": {
@@ -6979,6 +6972,16 @@
           "$type": "number",
           "$value": "{scale.0-5}"
         },
+        "padding": {
+          "y": {
+            "$type": "number",
+            "$value": "{scale.0-25}"
+          },
+          "x": {
+            "$type": "number",
+            "$value": "{scale.0-625}"
+          }
+        },
         "label": {
           "font": {
             "weight": {
@@ -6989,16 +6992,6 @@
               "$type": "number",
               "$value": "{typography.font.size}"
             }
-          }
-        },
-        "padding": {
-          "y": {
-            "$type": "number",
-            "$value": "{scale.0-25}"
-          },
-          "x": {
-            "$type": "number",
-            "$value": "{scale.0-625}"
           }
         },
         "icon": {
@@ -7033,13 +7026,13 @@
             }
           },
           "font": {
-            "weight": {
-              "$type": "number",
-              "$value": 600
-            },
             "size": {
               "$type": "number",
               "$value": "{typography.font.size}"
+            },
+            "weight": {
+              "$type": "number",
+              "$value": 600
             }
           }
         },
@@ -7112,47 +7105,47 @@
     "primary": {
       "50": {
         "$type": "color",
-        "$value": "{amber.50}"
+        "$value": "{blue.50}"
       },
       "100": {
         "$type": "color",
-        "$value": "{amber.100}"
+        "$value": "{blue.100}"
       },
       "200": {
         "$type": "color",
-        "$value": "{amber.200}"
+        "$value": "{blue.200}"
       },
       "300": {
         "$type": "color",
-        "$value": "{amber.300}"
+        "$value": "{blue.300}"
       },
       "400": {
         "$type": "color",
-        "$value": "{amber.400}"
+        "$value": "{blue.400}"
       },
       "500": {
         "$type": "color",
-        "$value": "{amber.500}"
+        "$value": "{blue.500}"
       },
       "600": {
         "$type": "color",
-        "$value": "{amber.600}"
+        "$value": "{blue.600}"
       },
       "700": {
         "$type": "color",
-        "$value": "{amber.700}"
+        "$value": "{blue.700}"
       },
       "800": {
         "$type": "color",
-        "$value": "{amber.800}"
+        "$value": "{blue.800}"
       },
       "900": {
         "$type": "color",
-        "$value": "{amber.900}"
+        "$value": "{blue.900}"
       },
       "950": {
         "$type": "color",
-        "$value": "{amber.950}"
+        "$value": "{blue.950}"
       }
     },
     "typography": {
@@ -7942,15 +7935,15 @@
             "$type": "color",
             "$value": "{navigation.item.icon.color}"
           },
+          "size": {
+            "$type": "number",
+            "$value": "{navigation.item.icon.size}"
+          },
           "hover": {
             "color": {
               "$type": "color",
               "$value": "{navigation.item.icon.focus.color}"
             }
-          },
-          "size": {
-            "$type": "number",
-            "$value": "{navigation.item.icon.size}"
           }
         },
         "border": {
@@ -8430,12 +8423,6 @@
             "$type": "color",
             "$value": "{list.option.selected.color}"
           },
-          "font": {
-            "weight": {
-              "$type": "number",
-              "$value": "{list.option.font.weight}"
-            }
-          },
           "focus": {
             "background": {
               "$type": "color",
@@ -8444,6 +8431,12 @@
             "color": {
               "$type": "color",
               "$value": "{list.option.selected.focus.color}"
+            }
+          },
+          "font": {
+            "weight": {
+              "$type": "number",
+              "$value": "{list.option.font.weight}"
             }
           }
         },
@@ -8872,12 +8865,6 @@
       }
     },
     "compare": {
-      "handle": {
-        "size": {
-          "$type": "number",
-          "$value": 1
-        }
-      },
       "indicator": {
         "size": {
           "$type": "number",
@@ -8914,6 +8901,12 @@
             "$type": "number",
             "$value": "{icon.size}"
           }
+        }
+      },
+      "handle": {
+        "size": {
+          "$type": "number",
+          "$value": 1
         }
       },
       "border": {
@@ -9206,6 +9199,16 @@
       },
       "submenu": {
         "label": {
+          "padding": {
+            "x": {
+              "$type": "number",
+              "$value": "{navigation.submenu.label.padding.x}"
+            },
+            "y": {
+              "$type": "number",
+              "$value": "{navigation.submenu.label.padding.y}"
+            }
+          },
           "font": {
             "size": {
               "$type": "number",
@@ -9219,16 +9222,6 @@
           "background": {
             "$type": "color",
             "$value": "{navigation.submenu.label.background}"
-          },
-          "padding": {
-            "x": {
-              "$type": "number",
-              "$value": "{navigation.submenu.label.padding.x}"
-            },
-            "y": {
-              "$type": "number",
-              "$value": "{navigation.submenu.label.padding.y}"
-            }
           },
           "color": {
             "$type": "color",
@@ -9585,16 +9578,6 @@
           "$type": "number",
           "$value": "{scale.0-25}"
         },
-        "hover": {
-          "background": {
-            "$type": "color",
-            "$value": "{content.hover.background}"
-          },
-          "color": {
-            "$type": "color",
-            "$value": "{content.hover.color}"
-          }
-        },
         "font": {
           "weight": {
             "$type": "number",
@@ -9603,6 +9586,16 @@
           "size": {
             "$type": "number",
             "$value": "{typography.font.size}"
+          }
+        },
+        "hover": {
+          "background": {
+            "$type": "color",
+            "$value": "{content.hover.background}"
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{content.hover.color}"
           }
         },
         "selected": {
@@ -11129,12 +11122,6 @@
             "$value": "{content.border.color}"
           }
         },
-        "info": {
-          "gap": {
-            "$type": "number",
-            "$value": "{scale.0-125}"
-          }
-        },
         "size": {
           "color": {
             "$type": "color",
@@ -11149,6 +11136,12 @@
               "$type": "number",
               "$value": "{typography.font.size}"
             }
+          }
+        },
+        "info": {
+          "gap": {
+            "$type": "number",
+            "$value": "{scale.0-125}"
           }
         },
         "name": {
@@ -11785,14 +11778,6 @@
             "$value": 3
           }
         },
-        "hover": {
-          "border": {
-            "color": {
-              "$type": "color",
-              "$value": "{surface.700}"
-            }
-          }
-        },
         "active": {
           "border": {
             "color": {
@@ -11814,6 +11799,14 @@
             "x": {
               "$type": "number",
               "$value": 0
+            }
+          }
+        },
+        "hover": {
+          "border": {
+            "color": {
+              "$type": "color",
+              "$value": "{surface.700}"
             }
           }
         },
@@ -12219,16 +12212,6 @@
           "$type": "number",
           "$value": "{scale.0-5}"
         },
-        "border": {
-          "color": {
-            "$type": "color",
-            "$value": "{form.field.border.color}"
-          },
-          "radius": {
-            "$type": "number",
-            "$value": "{form.field.border.radius}"
-          }
-        },
         "font": {
           "weight": {
             "$type": "number",
@@ -12237,6 +12220,16 @@
           "size": {
             "$type": "number",
             "$value": "{form.field.font.size}"
+          }
+        },
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{form.field.border.color}"
+          },
+          "radius": {
+            "$type": "number",
+            "$value": "{form.field.border.radius}"
           }
         },
         "min": {
@@ -12292,6 +12285,20 @@
       }
     },
     "inputtags": {
+      "border": {
+        "radius": {
+          "$type": "number",
+          "$value": "{form.field.border.radius}"
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{form.field.border.color}"
+        }
+      },
+      "gap": {
+        "$type": "number",
+        "$value": "{scale.0-25}"
+      },
       "focus": {
         "ring": {
           "width": {
@@ -12313,20 +12320,6 @@
             "$value": "{form.field.focus.border.color}"
           }
         }
-      },
-      "border": {
-        "radius": {
-          "$type": "number",
-          "$value": "{form.field.border.radius}"
-        },
-        "color": {
-          "$type": "color",
-          "$value": "{form.field.border.color}"
-        }
-      },
-      "gap": {
-        "$type": "number",
-        "$value": "{scale.0-25}"
       },
       "item": {
         "border": {
@@ -12368,6 +12361,14 @@
           }
         }
       },
+      "invalid": {
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{form.field.invalid.border.color}"
+          }
+        }
+      },
       "filled": {
         "background": {
           "$type": "color",
@@ -12389,14 +12390,6 @@
           "background": {
             "$type": "color",
             "$value": "{form.field.filled.focus.background}"
-          }
-        }
-      },
-      "invalid": {
-        "border": {
-          "color": {
-            "$type": "color",
-            "$value": "{form.field.invalid.border.color}"
           }
         }
       },
@@ -12664,6 +12657,16 @@
       }
     },
     "label": {
+      "disabled": {
+        "opacity": {
+          "$type": "number",
+          "$value": "{disabled.opacity}"
+        }
+      },
+      "gap": {
+        "$type": "number",
+        "$value": "{scale.0-375}"
+      },
       "font": {
         "weight": {
           "$type": "number",
@@ -12672,16 +12675,6 @@
         "size": {
           "$type": "number",
           "$value": "{typography.font.size}"
-        }
-      },
-      "gap": {
-        "$type": "number",
-        "$value": "{scale.0-375}"
-      },
-      "disabled": {
-        "opacity": {
-          "$type": "number",
-          "$value": "{disabled.opacity}"
         }
       },
       "text": {
@@ -13458,15 +13451,15 @@
             "$type": "color",
             "$value": "{navigation.item.icon.color}"
           },
+          "size": {
+            "$type": "number",
+            "$value": "{navigation.item.icon.size}"
+          },
           "focus": {
             "color": {
               "$type": "color",
               "$value": "{navigation.item.icon.focus.color}"
             }
-          },
-          "size": {
-            "$type": "number",
-            "$value": "{navigation.item.icon.size}"
           },
           "active": {
             "color": {
@@ -13826,6 +13819,16 @@
             "$type": "number",
             "$value": "{navigation.item.gap}"
           },
+          "active": {
+            "color": {
+              "$type": "color",
+              "$value": "{navigation.item.active.color}"
+            },
+            "background": {
+              "$type": "color",
+              "$value": "{navigation.item.active.background}"
+            }
+          },
           "color": {
             "$type": "color",
             "$value": "{navigation.item.color}"
@@ -13840,22 +13843,6 @@
               "$value": "{navigation.item.focus.background}"
             }
           },
-          "active": {
-            "color": {
-              "$type": "color",
-              "$value": "{navigation.item.active.color}"
-            },
-            "background": {
-              "$type": "color",
-              "$value": "{navigation.item.active.background}"
-            }
-          },
-          "border": {
-            "radius": {
-              "$type": "number",
-              "$value": "{content.border.radius}"
-            }
-          },
           "font": {
             "size": {
               "$type": "number",
@@ -13864,6 +13851,12 @@
             "weight": {
               "$type": "number",
               "$value": 500
+            }
+          },
+          "border": {
+            "radius": {
+              "$type": "number",
+              "$value": "{content.border.radius}"
             }
           },
           "padding": {
@@ -14279,16 +14272,6 @@
             }
           }
         },
-        "font": {
-          "size": {
-            "$type": "number",
-            "$value": "{typography.font.size}"
-          },
-          "weight": {
-            "$type": "number",
-            "$value": "{typography.font.weight}"
-          }
-        },
         "focus": {
           "ring": {
             "width": {
@@ -14303,6 +14286,16 @@
               "$type": "number",
               "$value": "{focus.ring.offset}"
             }
+          }
+        },
+        "font": {
+          "size": {
+            "$type": "number",
+            "$value": "{typography.font.size}"
+          },
+          "weight": {
+            "$type": "number",
+            "$value": "{typography.font.weight}"
           }
         },
         "padding": {
@@ -14861,6 +14854,12 @@
           "$type": "number",
           "$value": "{scale.0-625}"
         },
+        "border": {
+          "radius": {
+            "$type": "number",
+            "$value": "{content.border.radius}"
+          }
+        },
         "text": {
           "font": {
             "weight": {
@@ -14871,12 +14870,6 @@
               "$type": "number",
               "$value": "{typography.font.size}"
             }
-          }
-        },
-        "border": {
-          "radius": {
-            "$type": "number",
-            "$value": "{content.border.radius}"
           }
         }
       },
@@ -15244,12 +15237,10 @@
           }
         }
       },
-      "mask": {
-        "fade": {
-          "size": {
-            "$type": "number",
-            "$value": 40
-          }
+      "handle": {
+        "background": {
+          "$type": "color",
+          "$value": "{content.border.color}"
         }
       },
       "scrollbar": {
@@ -15278,10 +15269,12 @@
           "$value": "{scale.1}"
         }
       },
-      "handle": {
-        "background": {
-          "$type": "color",
-          "$value": "{content.border.color}"
+      "mask": {
+        "fade": {
+          "size": {
+            "$type": "number",
+            "$value": 40
+          }
         }
       }
     },
@@ -15412,16 +15405,6 @@
           "$value": "{form.field.placeholder.color}"
         }
       },
-      "font": {
-        "weight": {
-          "$type": "number",
-          "$value": "{form.field.font.weight}"
-        },
-        "size": {
-          "$type": "number",
-          "$value": "{form.field.font.size}"
-        }
-      },
       "padding": {
         "x": {
           "$type": "number",
@@ -15430,6 +15413,16 @@
         "y": {
           "$type": "number",
           "$value": "{form.field.padding.y}"
+        }
+      },
+      "font": {
+        "weight": {
+          "$type": "number",
+          "$value": "{form.field.font.weight}"
+        },
+        "size": {
+          "$type": "number",
+          "$value": "{form.field.font.size}"
         }
       },
       "dropdown": {
@@ -16973,6 +16966,16 @@
             "$value": "{navigation.item.focus.color}"
           }
         },
+        "active": {
+          "background": {
+            "$type": "color",
+            "$value": "{navigation.item.active.background}"
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{navigation.item.active.color}"
+          }
+        },
         "label": {
           "font": {
             "weight": {
@@ -16983,16 +16986,6 @@
               "$type": "number",
               "$value": "{navigation.item.label.font.size}"
             }
-          }
-        },
-        "active": {
-          "background": {
-            "$type": "color",
-            "$value": "{navigation.item.active.background}"
-          },
-          "color": {
-            "$type": "color",
-            "$value": "{navigation.item.active.color}"
           }
         },
         "border": {
@@ -17006,15 +16999,15 @@
             "$type": "color",
             "$value": "{navigation.item.icon.color}"
           },
-          "size": {
-            "$type": "number",
-            "$value": "{navigation.item.icon.size}"
-          },
           "focus": {
             "color": {
               "$type": "color",
               "$value": "{navigation.item.icon.focus.color}"
             }
+          },
+          "size": {
+            "$type": "number",
+            "$value": "{navigation.item.icon.size}"
           },
           "active": {
             "color": {
