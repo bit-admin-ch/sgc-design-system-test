@@ -144,7 +144,7 @@ export default {
         200: "#bfdbfeff",
         300: "#93c5fdff",
         400: "#60a5faff",
-        500: "#19fb00ff",
+        500: "#3b82f6ff",
         600: "#2563ebff",
         700: "#1d4ed8ff",
         800: "#1e40afff",
