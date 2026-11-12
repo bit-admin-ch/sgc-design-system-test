@@ -1,12 +1,13 @@
 name: Optimus preset version
 
-# Whenever a merge into main changes optimus/sgc-preset.ts, snapshots it as
-# optimus/sgc-preset-v<N>.ts with the next running number. sgc-preset.ts stays the latest.
+# On every merge into main:
+# 1. If optimus/sgc-preset.ts changed, snapshots it as optimus/sgc-preset-v<N>.ts with the next
+#    running number. sgc-preset.ts stays the latest.
+# 2. Resets feature/updates-from-figma to main, so the Figma branch does not lag behind
+#    (rebase/squash merges rewrite its commits, and the version commit only exists on main).
 on:
   push:
     branches: [main]
-    paths:
-      - 'optimus/sgc-preset.ts'
   workflow_dispatch:
 
 permissions:
@@ -22,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # the sync step needs the merge base with the Figma branch
 
       - name: Snapshot preset
         run: |
@@ -51,3 +54,31 @@ jobs:
           git commit -m "Add Optimus preset version v${next}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
           echo "Created optimus/sgc-preset-v${next}.ts" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Sync Figma branch with main
+        env:
+          FIGMA_BRANCH: feature/updates-from-figma
+        run: |
+          if ! git fetch origin "+refs/heads/${FIGMA_BRANCH}:refs/remotes/origin/${FIGMA_BRANCH}"; then
+            echo "${FIGMA_BRANCH} does not exist; nothing to sync." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          main_sha=$(git rev-parse HEAD)
+          figma_sha=$(git rev-parse "origin/${FIGMA_BRANCH}")
+          if [ "$main_sha" = "$figma_sha" ]; then
+            echo "${FIGMA_BRANCH} already matches main." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Only reset when the branch holds nothing main lacks: merging it into main must be a no-op.
+          # Otherwise Figma has pushed a new export that is still waiting for its pull request.
+          if ! merged=$(git merge-tree --write-tree HEAD "origin/${FIGMA_BRANCH}") \
+            || [ "$merged" != "$(git rev-parse 'HEAD^{tree}')" ]; then
+            echo "${FIGMA_BRANCH} has changes that are not in main yet; left untouched." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # The lease aborts the push if Figma pushed in the meantime.
+          git push origin "HEAD:refs/heads/${FIGMA_BRANCH}" \
+            --force-with-lease="refs/heads/${FIGMA_BRANCH}:${figma_sha}"
+          echo "Reset ${FIGMA_BRANCH} to main (${main_sha::7})." >> "$GITHUB_STEP_SUMMARY"
