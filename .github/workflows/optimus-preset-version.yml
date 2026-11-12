@@ -1,0 +1,53 @@
+name: Optimus preset version
+
+# Whenever a merge into main changes optimus/sgc-preset.ts, snapshots it as
+# optimus/sgc-preset-v<N>.ts with the next running number. sgc-preset.ts stays the latest.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'optimus/sgc-preset.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Two merges in quick succession must not claim the same number.
+concurrency:
+  group: optimus-preset-version
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Snapshot preset
+        run: |
+          # Another run may have pushed a version since this one was queued.
+          git pull --ff-only origin "${GITHUB_REF_NAME}"
+
+          latest=0
+          for f in optimus/sgc-preset-v*.ts; do
+            [ -e "$f" ] || continue
+            n=${f#optimus/sgc-preset-v}
+            n=${n%.ts}
+            case "$n" in ''|*[!0-9]*) continue ;; esac
+            [ "$n" -gt "$latest" ] && latest=$n
+          done
+
+          if [ "$latest" -gt 0 ] && cmp -s optimus/sgc-preset.ts "optimus/sgc-preset-v${latest}.ts"; then
+            echo "Preset identical to sgc-preset-v${latest}.ts; no new version." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          next=$((latest + 1))
+          cp optimus/sgc-preset.ts "optimus/sgc-preset-v${next}.ts"
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "optimus/sgc-preset-v${next}.ts"
+          git commit -m "Add Optimus preset version v${next}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "Created optimus/sgc-preset-v${next}.ts" >> "$GITHUB_STEP_SUMMARY"
