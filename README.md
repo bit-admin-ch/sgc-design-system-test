@@ -11,6 +11,16 @@ Git-Repository installiert, nicht aus einer npm-Registry.
 
 ## Installation
 
+Ab npm 12 (Node 24) lehnt npm Git-Abhängigkeiten standardmässig ab
+(`Fetching packages of type "git" have been disabled`). Deshalb zuerst im UI-Projekt eine `.npmrc`
+mit folgendem Inhalt anlegen oder ergänzen:
+
+```ini
+allow-git=root
+```
+
+Danach installieren:
+
 ```bash
 npm install github:bit-admin-ch/sgc-design-system-test#v1
 ```
@@ -35,13 +45,22 @@ npm install "git+ssh://git@github.com/bit-admin-ch/sgc-design-system-test.git#v1
 
 ## Verwendung
 
+In der `app.config.ts`:
+
 ```ts
+import { provideOptimus } from '@openng/optimus-ui/config';
 import { SgcPreset } from 'sgc-optimus-preset';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideOptimus({
+      theme: { preset: SgcPreset },
+    }),
+  ],
+};
 ```
 
-`SgcPreset` ist ein fertiges Optimus-Preset und kommt überall dorthin, wo die Theme-Konfiguration
-der Anwendung bisher ein Preset wie `Aura` erhält. Komponenten und Tokens, die das Figma-Kit nicht
-abdeckt, fallen auf Aura zurück.
+Komponenten und Tokens, die das Figma-Kit nicht abdeckt, fallen auf Aura zurück.
 
 Zusätzlich exportiert das Paket `SgcTokens`: die reinen Figma-Tokens ohne Aura-Fallback, zum
 Beispiel als Basis für ein eigenes `definePreset(...)`.
