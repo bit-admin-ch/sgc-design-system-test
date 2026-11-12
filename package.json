@@ -1,0 +1,16 @@
+{
+  "name": "sgc-design-system-test",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PrimeOne Figma export (theme/, design-tokens/) plus the Optimus UI preset generated from it (optimus/).",
+  "scripts": {
+    "build:optimus": "node tools/figma-to-optimus.mjs theme/ts optimus/sgc-preset.ts"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@openng/optimus-ui-themes": "2.0.2"
+  }
+}
