@@ -1,19 +1,15 @@
 name: Optimus preset
 
-# Regenerates optimus/sgc-preset.ts whenever the PrimeOne Figma plugin pushes a new theme export.
+# Runs whenever the PrimeOne Figma plugin pushes an export to feature/updates-from-figma:
+# regenerates optimus/sgc-preset.ts on that branch, then opens a pull request into main.
 on:
   push:
-    branches: [main]
-    paths:
-      - 'theme/ts/**'
-      - 'tools/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/workflows/optimus-preset.yml'
+    branches: [feature/updates-from-figma]
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: write
 
 # The plugin pushes two commits per export (theme, then design tokens); never run two generators at once.
 concurrency:
@@ -60,3 +56,27 @@ jobs:
           # The plugin may have pushed its second commit in the meantime.
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "${BASE}" ]; then
+            echo "Running on ${BASE}; no pull request needed." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git fetch origin "${BASE}"
+          if [ "$(git rev-list --count "origin/${BASE}..HEAD")" -eq 0 ]; then
+            echo "Nothing ahead of ${BASE}; no pull request needed." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          url=$(gh pr list --head "${GITHUB_REF_NAME}" --base "${BASE}" --state open --json url --jq '.[0].url')
+          if [ -n "${url}" ]; then
+            echo "Pull request already open: ${url}" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          url=$(gh pr create --head "${GITHUB_REF_NAME}" --base "${BASE}" \
+            --title "Updates from Figma - $(date +%d.%m.%Y)" \
+            --body "Automated Figma export (theme and design tokens) with the regenerated Optimus preset.")
+          echo "Opened pull request: ${url}" >> "$GITHUB_STEP_SUMMARY"
