@@ -1,9 +1,19 @@
 {
-  "name": "sgc-design-system-test",
-  "version": "0.0.0",
+  "name": "sgc-optimus-preset",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "PrimeOne Figma export (theme/, design-tokens/) plus the Optimus UI preset generated from it (optimus/).",
+  "exports": {
+    ".": {
+      "types": "./optimus/dist/sgc-preset.d.ts",
+      "default": "./optimus/dist/sgc-preset.js"
+    }
+  },
+  "types": "./optimus/dist/sgc-preset.d.ts",
+  "files": [
+    "optimus/dist"
+  ],
+  "description": "Optimus UI preset (optimus/) generated from the PrimeOne Figma export (figma-export/). Installable straight from Git by tag.",
   "scripts": {
     "build:optimus": "node tools/figma-to-optimus.mjs figma-export/theme/ts optimus/sgc-preset.ts"
   },
@@ -12,5 +22,8 @@
   },
   "devDependencies": {
     "@openng/optimus-ui-themes": "2.0.2"
+  },
+  "peerDependencies": {
+    "@openng/optimus-ui-themes": "^2.0.2"
   }
 }

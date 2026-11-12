@@ -1,7 +1,8 @@
 name: Optimus preset
 
 # Runs whenever the PrimeOne Figma plugin pushes an export to feature/updates-from-figma:
-# regenerates optimus/sgc-preset.ts on that branch, then opens a pull request into main.
+# regenerates optimus/sgc-preset.ts and the package entry points in optimus/dist on that branch,
+# then opens a pull request into main.
 on:
   push:
     branches: [feature/updates-from-figma]
@@ -22,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # the file header names the last commit that touched theme/ts
+          fetch-depth: 0 # the file header names the last commit that touched figma-export/theme/ts
 
       - uses: actions/setup-node@v5
         with:
@@ -45,14 +46,14 @@ jobs:
 
       - name: Commit if changed
         run: |
-          git add optimus/sgc-preset.ts
+          git add optimus/sgc-preset.ts optimus/dist
           if git diff --cached --quiet; then
             echo "Preset unchanged." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m "Regenerate Optimus preset from Figma export ($(git log -1 --format=%h -- theme/ts))"
+          git commit -m "Regenerate Optimus preset from Figma export ($(git log -1 --format=%h -- figma-export/theme/ts))"
           # The plugin may have pushed its second commit in the meantime.
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
