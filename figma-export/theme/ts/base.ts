@@ -510,7 +510,7 @@ export default {
     },
     typography: {
         lineHeight: "1.5",
-        fontFamily: "Inter",
+        fontFamily: "Noto Sans",
         fontWeight: "400",
         fontSize: "0.875rem"
     }
